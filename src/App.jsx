@@ -6,6 +6,7 @@ import Gallery from './components/Gallery'
 import Footer from './components/Footer'
 import "bootstrap/dist/css/bootstrap.min.css"
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import FormularioControlado from './components/formularios/FormularioControlado';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Navigation />
       <Main />
       <Gallery />
+      <FormularioControlado/>
       <Footer />
     </div>
   )
