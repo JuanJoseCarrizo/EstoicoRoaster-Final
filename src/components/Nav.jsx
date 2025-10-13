@@ -20,7 +20,7 @@ const Navigation = () => {
         {/* CENTRO (LOGO / NOMBRE) */}
         <Navbar.Brand href="#" className="mx-auto fw-bold fs-3 text-primary">
           <img
-            src="/imagenes/logo.png"
+            src={`${import.meta.env.BASE_URL}imagenes/logo.png`}
             alt="Logo"
             width="50"
             height="75"
