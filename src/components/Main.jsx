@@ -6,12 +6,12 @@ const Main = () => {
         <main className="py-5 bg-light">
             <Container>
                 <Row className="align-items-center">
-                    <Col md={6}>
+                    <Col md={6} className="mb-3">
                         <img src={`${import.meta.env.BASE_URL}/imagenes/catalogo div 1.png`} alt="Imagen random"
                             className="img-fluid rounded shadow"
                         />
                     </Col>
-                    <Col md={6}>
+                    <Col md={6} className="mb-3">
                         <img src={`${import.meta.env.BASE_URL}/imagenes/catalogo div 2.png`} alt="Imagen random"
                             className="img-fluid rounded shadow"
                         />
@@ -19,7 +19,7 @@ const Main = () => {
                 </Row>
                 <Row className="align-items-stretch mt-3 d-flex d-flex justify-content-around">
                     {/* Columna 1 */}
-                    <Col md={6} className="d-flex flex-column">
+                    <Col md={6} className="d-flex flex-column mb-3">
                         <img
                             src={`${import.meta.env.BASE_URL}/imagenes/catalogo div 3.png`}
                             alt="Imagen random"
