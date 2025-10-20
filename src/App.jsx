@@ -6,7 +6,12 @@ import Gallery from './components/Gallery'
 import Footer from './components/Footer'
 import "bootstrap/dist/css/bootstrap.min.css"
 import 'bootstrap-icons/font/bootstrap-icons.css';
+
 import FormularioControlado from './components/formularios/FormularioControlado';
+import { Container } from 'react-bootstrap'
+import { UserProvider } from './Context/UserContext'
+import  UserCard  from './components/UserCard'
+import  CargarBotonDeUsuario  from './components/CargarBotonDeUsuario'
 
 function App() {
 
@@ -16,7 +21,16 @@ function App() {
       <Navigation />
       <Main />
       <Gallery />
-      <FormularioControlado/>
+      <FormularioControlado />
+
+      <UserProvider>
+        <Container>
+          <h1>Usuarios Random</h1>
+          <UserCard />
+          <CargarBotonDeUsuario />
+        </Container>
+      </UserProvider>
+      
       <Footer />
     </div>
   )

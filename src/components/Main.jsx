@@ -3,7 +3,7 @@ import { Container, Row, Col, Nav } from "react-bootstrap";
 
 const Main = () => {
     return (
-        <main className="py-5 bg-light">
+        <main className="py-5" style={{ backgroundColor: "#D9DFCC" }}>
             <Container>
                 <Row className="align-items-center">
                     <Col md={6} className="mb-3">

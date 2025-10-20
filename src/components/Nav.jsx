@@ -3,7 +3,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 
 const Navigation = () => {
   return (
-    <Navbar expand="sm" bg="white" variant="light" className="py-1">
+    <Navbar expand="sm" sticky="top" bg="white" variant="light" className="py-1">
       <Container>
 
         {/* Botón hamburguesa */}
