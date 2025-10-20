@@ -9,7 +9,7 @@ const UserCard = () => {
         return (
             <div>
                 <Spinner animation='border' role='status'>
-                    <span>Cargando....</span>
+                    <span className="visually-hidden">Cargando....</span>
                 </Spinner>
             </div>
         )
@@ -18,10 +18,10 @@ const UserCard = () => {
     return (
         <div>
             <Card>
-                <Card.Img variant='top' src='user.picture.large'/>
+                <Card.Img width={} variant="top" src={user.picture.large}/>
                 <Card.Body>
                     <Card.Title>
-                        {user.name.first}{user.name.last}
+                        {user.name.first} {user.name.last}
                     </Card.Title>
                     <Card.Text>
                         <strong>Email:</strong> {user.email}<br/>
