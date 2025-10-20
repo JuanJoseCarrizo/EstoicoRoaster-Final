@@ -28,7 +28,7 @@ const Main = () => {
                     </Col>
 
                     {/* Columna 2 */}
-                    <Col md={6} className="d-flex flex-column rounded p-2" style={{ backgroundColor: "#F1EDEB" }}>
+                    <Col md={6} className="d-flex flex-column rounded" style={{ backgroundColor: "#F1EDEB" }}>
                         <div className="d-flex flex-column flex-grow-1 justify-content-between">
                             <div>
                                 <i className="bi bi-globe me-1"></i>
