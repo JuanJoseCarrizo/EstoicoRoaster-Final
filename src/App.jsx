@@ -25,7 +25,7 @@ function App() {
 
       <UserProvider>
         <Container>
-          <h1>Usuarios Random</h1>
+          <h1 className='text-center'>Clientes</h1>
           <UserCard />
           <CargarBotonDeUsuario />
         </Container>
