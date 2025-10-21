@@ -4,6 +4,13 @@ import { Container, Row, Col, Nav } from "react-bootstrap";
 const Main = () => {
     return (
         <main className="py-5" style={{ backgroundColor: "#D9DFCC" }}>
+            <div>
+                <img
+                    src={`${import.meta.env.BASE_URL}imagenes/Tarjeta-Logo.png`}
+                    alt="imagenen de logo principal"
+                    className="w-100 mb-5"
+                />
+            </div>
             <Container>
                 <Row className="align-items-center">
                     <Col md={6} className="mb-3">
