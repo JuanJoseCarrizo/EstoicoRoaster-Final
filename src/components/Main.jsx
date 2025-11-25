@@ -24,7 +24,7 @@ const Main = () => {
                         />
                     </Col>
                 </Row>
-                <Row className="align-items-stretch mt-3 d-flex d-flex justify-content-around">
+                <Row className="align-items-stretch d-flex d-flex justify-content-around">
                     {/* Columna 1 */}
                     <Col md={6} className="d-flex flex-column mb-3">
                         <img
