@@ -1,28 +1,52 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Container, Form, Button } from 'react-bootstrap';
+import { useAuth } from './AuthContext';
 
-export default function Login() {
+const Login = () => {
+  const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    localStorage.setItem('auth', 'true');
-    navigate('/perfil/usuario123');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const success = login(username, password);
+    if (success) {
+      navigate('/admin');
+    } else {
+      setError('Usuario o contraseña incorrectos');
+    }
   };
 
   return (
-    <Container className="mt-5 mb-5"  style={{ maxWidth: 400 }}>
-      <h2>Iniciar sesión</h2>
-      <Form>
-        <Form.Group className="mb-3">
-          <Form.Label>Usuario</Form.Label>
-          <Form.Control type="text" />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Contraseña</Form.Label>
-          <Form.Control type="password" />
-        </Form.Group>
-        <Button variant="primary" onClick={handleLogin}>Entrar</Button>
-      </Form>
-    </Container>
+    <div className="container mt-5">
+      <h2>Iniciar Sesión</h2>
+      <form onSubmit={handleSubmit} className="mt-3">
+        <div className="mb-3">
+          <label className="form-label">Usuario</label>
+          <input
+            type="text"
+            className="form-control"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Contraseña</label>
+          <input
+            type="password"
+            className="form-control"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">Ingresar</button>
+        {error && <div className="alert alert-danger mt-3">{error}</div>}
+      </form>
+    </div>
   );
-}
+};
+
+export default Login;

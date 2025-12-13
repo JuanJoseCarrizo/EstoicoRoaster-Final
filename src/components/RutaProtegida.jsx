@@ -6,5 +6,5 @@ export default function RutaProtegida({children})
 
 {
     const auth=localStorage.getItem('auth') === 'true';
-    return auth ? children: <Navidate to ="/login"/>
+    return auth ? children: <Navigate to ="/login"/>
 }

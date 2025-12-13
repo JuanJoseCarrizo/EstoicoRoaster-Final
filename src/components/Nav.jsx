@@ -1,45 +1,49 @@
 import React from "react";
-import { Container, Nav, Navbar , Button} from "react-bootstrap";
-
+import { Container, Nav, Navbar , Button , Badge } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from '../paginas/AuthContext';
+
+/* AGREGADO */
+import { useContext} from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { CartContext } from './CartContext';
+
+
 
 const Navigation = () => {
 
+  const { carrito } = useContext(CartContext);
+  const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+
+  const { token, logout } = useAuth();   // token viene del contexto
+  const isAuth = !!token;                // <-- ESTO FALTABA
   const navigate = useNavigate();
-  const isAuth = localStorage.getItem('auth') === 'true';
 
-  const cerrarSesion = () => {
-    localStorage.removeItem('auth');
+  const handleLogout = () => {
+    logout();
     navigate('/login');
-  }
-
+  };
 
   return (
     <Navbar expand="sm" sticky="top" bg="white" variant="light" className="py-1">
       <Container>
-
-        {/* Botón hamburguesa */}
         <Navbar.Toggle aria-controls="main-navbar" />
-
-        {/* Menú colapsable */}
         <Navbar.Collapse id="main-navbar">
           <Nav className="me-auto w-100 justify-content-between align-items-center flex-lg-row text-center">
-            {/* Links de la izquierda */}
+
+            {/* Izquierda */}
             <div className="d-flex flex-column flex-lg-row">
-              <Nav.Link href="#" className="mx-2 fs-6 text-dark" as={Link} to={'/'}
-              >
-                Inicio
-              </Nav.Link>
-              <Nav.Link href="#" className="mx-2 fs-6 text-dark" as={Link} to={'/productos'} >
-                Productos
-              </Nav.Link>
+              <Nav.Link as={Link} to="/" className="mx-2 fs-6 text-dark">Inicio</Nav.Link>
+              <Nav.Link as={Link} to="/productos" className="mx-2 fs-6 text-dark">Productos</Nav.Link>
+              
+              <Nav.Link as={Link} to="/infaltables" className="mx-2 fs-6 text-dark">Infaltables</Nav.Link>
+              
+              
             </div>
 
-            {/* Logo en el centro en desktop, derecha en móvil */}
-            <Navbar.Brand
-              href="#"
-              className="my-2 my-lg-0 mx-0 mx-lg-3 fw-bold fs-2 text-primary" as={Link} to={'/'}
-            >
+            {/* Logo */}
+            <Navbar.Brand as={Link} to="/" className="my-2 my-lg-0 mx-0 mx-lg-3 fw-bold fs-2 text-primary">
               <img
                 src={`${import.meta.env.BASE_URL}imagenes/logo.png`}
                 alt="Logo"
@@ -49,41 +53,37 @@ const Navigation = () => {
               />
             </Navbar.Brand>
 
-            {/* Links de la derecha */}
+            {/* Derecha */}
             <div className="d-flex flex-column flex-lg-row">
-              <Nav.Link href="#" className="mx-2 fs-6 text-dark" as={Link} to={'/'}>
-                Contacto
-              </Nav.Link>
+              <Nav.Link as={Link} to="/ofertas" className="mx-2 fs-6 text-dark">Ofertas</Nav.Link>
+              <Nav.Link as={Link} to="/contacto" className="mx-2 fs-6 text-dark">Contacto</Nav.Link>
 
-
-
-              {/* Links que se muestran si el usuario esta autenticado */}
 
               {isAuth && (
                 <>
-                <Nav.Link href="#" className="mx-2 fs-6 text-dark" as={Link} to={'/admin'}>
-                  Admin
-                </Nav.Link>
-
-                <Nav.Link href="#" className="mx-2 fs-6 text-dark" as={Link} to={'/perfil/usuario123'}>
-                  Perfil
-                </Nav.Link>
+                  <Nav.Link as={Link} to="/admin" className="mx-2 fs-6 text-dark">Admin</Nav.Link>
+                  <Nav.Link as={Link} to="/perfil/usuario123" className="mx-2 fs-6 text-dark">Perfil</Nav.Link>
                 </>
-
-
               )}
 
-              {/* Muetra login o logout segun inicie serion el usuario */}
-
               {!isAuth ? (
-                <Nav.Link href="#" className="mx-2 fs-6 text-dark" as={Link} to={'/login'}>
+                <Nav.Link as={Link} to="/login" className="mx-2 fs-6 text-dark">
                   Login
-                </Nav.Link>):(
+                </Nav.Link>
+              ) : (
+                <Button className="btn btn-outline-light" onClick={handleLogout}>
+                  Cerrar sesión
+                </Button>
+              )}
 
-                <Button className="btn btn-outline-light" onClick={cerrarSesion}>Cerrar sesion</Button>
-
-                )
-              }
+              <Link to="/carrito" className="text-dark position-relative">
+              <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+              {totalItems > 0 && (
+                <Badge pill bg="danger" className="position-absolute top-0 start-100 translate-middle">
+                  {totalItems}
+                </Badge>
+              )}
+            </Link>
 
             </div>
           </Nav>
