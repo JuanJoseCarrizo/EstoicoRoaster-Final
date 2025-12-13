@@ -44,7 +44,7 @@ function App() {
     <AuthProvider>
       
       <CartProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Header />
         <Navigation />
 
@@ -77,7 +77,7 @@ function App() {
           <Route path="/contacto" element={<Contacto />} />
 
           {/* Rutas protegidas */}
-          <Route path="/perfil/:id" element={
+          <Route path="/perfil" element={
             <RutaProtegida>
               <Perfil />
             </RutaProtegida>

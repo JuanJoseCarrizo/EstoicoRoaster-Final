@@ -62,7 +62,7 @@ const Navigation = () => {
               {isAuth && (
                 <>
                   <Nav.Link as={Link} to="/admin" className="mx-2 fs-6 text-dark">Admin</Nav.Link>
-                  <Nav.Link as={Link} to="/perfil/usuario123" className="mx-2 fs-6 text-dark">Perfil</Nav.Link>
+                  <Nav.Link as={Link} to="/perfil" className="mx-2 fs-6 text-dark">Perfil</Nav.Link>
                 </>
               )}
 
