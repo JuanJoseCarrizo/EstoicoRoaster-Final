@@ -1,16 +1,59 @@
-# React + Vite
+# ☕ Estoico Roaster
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto de e-commerce desarrollado en **React** para una cafetería ficticia llamada **Estoico Roaster**.  
+Incluye catálogo de productos, carrito de compras, autenticación, rutas protegidas y deploy en GitHub Pages.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologías utilizadas
 
-## React Compiler
+- **React**
+- **React Router DOM**
+- **Context API**
+  - AuthContext (autenticación)
+  - CartContext (carrito de compras)
+- **React Bootstrap**
+- **Bootstrap Icons**
+- **FontAwesome**
+- **MockAPI / FakeStore API**
+- **Vite**
+- **GitHub Pages**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Funcionalidades
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Navegación SPA con React Router
+- Catálogo de productos
+- Filtro por categorías (Ofertas / Infaltables)
+- Carrito de compras con contador dinámico
+- Autenticación de usuario
+- Rutas protegidas (Admin / Perfil / Dashboard)
+- Persistencia de sesión con `localStorage`
+- Deploy en GitHub Pages
+
+---
+
+## Credenciales de prueba
+
+Para acceder a las rutas protegidas:
+
+Usuario: jcarrizo
+Contraseña: 123456
+
+
+## Deploy
+
+El proyecto está deployado en GitHub Pages.
+Se utiliza base en Vite y basename en React Router para soportar rutas correctamente.
+
+
+## Autor
+
+Juan José Carrizo
+Proyecto académico / práctico en React
+
+
+## Link
+
+https://juanjosecarrizo.github.io/EstoicoRoaster-Final/
